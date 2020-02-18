@@ -1,0 +1,21 @@
+public class UserInput {
+
+ private static final Logger log = Logger.getLogger(UserInput.class.getName());
+ 
+ public static int inputMonth() {
+        int output = 0;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Type the month in numeric format");
+            output = scanner.nextInt();
+            if (output < 1 || output > 12) {
+                log.warning("Incorrect month data");
+                throw new IllegalArgumentException("Incorrect month data");
+            }
+        } catch (InputMismatchException e) {
+            log.warning("Incorrect month data");
+            throw new IllegalArgumentException("Incorrect month data");
+        }
+        return output;
+      }
+}
