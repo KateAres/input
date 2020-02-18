@@ -1,0 +1,16 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class FileDataReader {
+
+    public String readFile(String filePath) throws IOException {
+        StringBuilder builder = new StringBuilder();
+        try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
+            int i;
+            while ((i = fileInputStream.read()) != -1) {
+                builder.append((char) i);
+            }
+        }
+        return builder.toString();
+    }
+}
